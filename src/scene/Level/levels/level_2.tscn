@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dyq8nfy0mf4p2"]
+
+[ext_resource type="PackedScene" uid="uid://t4sig8wggh60" path="res://src/scene/Level/level_base.tscn" id="1_8qjcd"]
+[ext_resource type="PackedScene" uid="uid://cjgba63c6jtt1" path="res://src/character/enemy/frog.tscn" id="2_c4qt5"]
+
+[node name="Level2" instance=ExtResource("1_8qjcd")]
+
+[node name="Frog" parent="." index="9" instance=ExtResource("2_c4qt5")]
+position = Vector2(498, -70)
+
+[node name="Frog2" parent="." index="10" instance=ExtResource("2_c4qt5")]
+position = Vector2(709, -49)
+
+[node name="Frog3" parent="." index="11" instance=ExtResource("2_c4qt5")]
+position = Vector2(213, -123)

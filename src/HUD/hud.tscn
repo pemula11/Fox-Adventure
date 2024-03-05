@@ -1,0 +1,133 @@
+[gd_scene load_steps=5 format=3 uid="uid://1p3k44m5bi8q"]
+
+[ext_resource type="LabelSettings" uid="uid://dgt2sxrp622qh" path="res://assets/label/GL_48_White.tres" id="1_0ncmg"]
+[ext_resource type="Texture2D" uid="uid://drei3djyw2v03" path="res://assets/items/pixel heart 2.png" id="2_tcm6p"]
+[ext_resource type="LabelSettings" uid="uid://c06uqoxdoa00n" path="res://assets/label/LG_^$_TITLE.tres" id="3_gcs0a"]
+[ext_resource type="LabelSettings" uid="uid://b717bemp0lh0p" path="res://assets/label/LG_24_SubTitle.tres" id="4_7wqr2"]
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MC" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="HB" type="HBoxContainer" parent="MC"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="ScoreLabel" type="Label" parent="MC/HB"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+text = "0000"
+label_settings = ExtResource("1_0ncmg")
+vertical_alignment = 1
+
+[node name="HB" type="HBoxContainer" parent="MC/HB"]
+layout_mode = 2
+
+[node name="L1" type="TextureRect" parent="MC/HB/HB"]
+layout_mode = 2
+texture = ExtResource("2_tcm6p")
+stretch_mode = 3
+
+[node name="L2" type="TextureRect" parent="MC/HB/HB"]
+layout_mode = 2
+texture = ExtResource("2_tcm6p")
+stretch_mode = 3
+
+[node name="L3" type="TextureRect" parent="MC/HB/HB"]
+layout_mode = 2
+texture = ExtResource("2_tcm6p")
+stretch_mode = 3
+
+[node name="L4" type="TextureRect" parent="MC/HB/HB"]
+layout_mode = 2
+texture = ExtResource("2_tcm6p")
+stretch_mode = 3
+
+[node name="L5" type="TextureRect" parent="MC/HB/HB"]
+layout_mode = 2
+texture = ExtResource("2_tcm6p")
+stretch_mode = 3
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.00392157, 0.0980392, 0.796078)
+
+[node name="VB_LevelComplete" type="VBoxContainer" parent="ColorRect"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="ColorRect/VB_LevelComplete"]
+layout_mode = 2
+text = "LEVEL COMPLETE"
+label_settings = ExtResource("3_gcs0a")
+
+[node name="Label2" type="Label" parent="ColorRect/VB_LevelComplete"]
+layout_mode = 2
+text = "Press jump for next level
+"
+label_settings = ExtResource("4_7wqr2")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VB_LevelComplete2" type="VBoxContainer" parent="ColorRect"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="ColorRect/VB_LevelComplete2"]
+layout_mode = 2
+text = "Game over"
+label_settings = ExtResource("3_gcs0a")
+uppercase = true
+
+[node name="Label2" type="Label" parent="ColorRect/VB_LevelComplete2"]
+layout_mode = 2
+text = "Press jump for main menu
+"
+label_settings = ExtResource("4_7wqr2")
+horizontal_alignment = 1
+vertical_alignment = 1

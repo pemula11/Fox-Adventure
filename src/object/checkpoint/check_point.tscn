@@ -1,0 +1,192 @@
+[gd_scene load_steps=16 format=3 uid="uid://ca8s8x34dui2t"]
+
+[ext_resource type="Texture2D" uid="uid://b6s60kkl3e0vc" path="res://assets/items/checkpoint.png" id="1_a008s"]
+[ext_resource type="Script" path="res://src/object/checkpoint/check_point.gd" id="1_iplau"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8w3fb"]
+size = Vector2(20, 40)
+
+[sub_resource type="Animation" id="Animation_0qwq8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [26]
+}
+
+[sub_resource type="Animation" id="Animation_wbsws"]
+resource_name = "appear"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [26]
+}
+
+[sub_resource type="Animation" id="Animation_f7lyc"]
+resource_name = "flag_flap"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_axlvp"]
+resource_name = "flag_open"
+length = 2.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2yi4s"]
+_data = {
+"RESET": SubResource("Animation_0qwq8"),
+"appear": SubResource("Animation_wbsws"),
+"flag_flap": SubResource("Animation_f7lyc"),
+"flag_open": SubResource("Animation_axlvp")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jclew"]
+animation = &"appear"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ssdvq"]
+animation = &"flag_flap"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tenam"]
+animation = &"flag_open"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_45nj3"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"on_trigger"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5lbeo"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_iklm1"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_v55gi"]
+states/Start/position = Vector2(200, 101.926)
+states/appear/node = SubResource("AnimationNodeAnimation_jclew")
+states/appear/position = Vector2(353.333, 99.7778)
+states/flag_flap/node = SubResource("AnimationNodeAnimation_ssdvq")
+states/flag_flap/position = Vector2(661.333, 99.9753)
+states/flag_open/node = SubResource("AnimationNodeAnimation_tenam")
+states/flag_open/position = Vector2(513.333, 100.815)
+transitions = ["Start", "appear", SubResource("AnimationNodeStateMachineTransition_45nj3"), "appear", "flag_open", SubResource("AnimationNodeStateMachineTransition_5lbeo"), "flag_open", "flag_flap", SubResource("AnimationNodeStateMachineTransition_iklm1")]
+
+[node name="CheckPoint" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+monitoring = false
+script = ExtResource("1_iplau")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(12, -22)
+shape = SubResource("RectangleShape2D_8w3fb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(9, -32)
+texture = ExtResource("1_a008s")
+hframes = 26
+vframes = 3
+frame = 26
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_2yi4s")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_2yi4s")
+}
+tree_root = SubResource("AnimationNodeStateMachine_v55gi")
+anim_player = NodePath("../AnimationPlayer")
+parameters/conditions/on_trigger = false
+
+[node name="sound" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
